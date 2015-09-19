@@ -5,9 +5,16 @@ import javax.swing.table.DefaultTableModel;
 public class modelo extends database{
 
     public modelo (){}
+    
+    public class ModeloTablaNoEditable extends DefaultTableModel {
+
+        public boolean isCellEditable(int row, int column){  
+            return false;  
+        }
+    }
 
     public DefaultTableModel getTablaComic(){
-        DefaultTableModel tablemodel = new DefaultTableModel();
+        DefaultTableModel tablemodel = new ModeloTablaNoEditable();
         int registros = 0;
         String[] columNames = {"ISBN","Titulo","Precio","Paginas"};
       

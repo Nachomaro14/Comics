@@ -49,6 +49,8 @@ public class controlador implements ActionListener, MouseListener{
 
         this.vista.tablaComics.addMouseListener(this);
         this.vista.tablaComics.setModel(new DefaultTableModel());
+        this.vista.tablaComics.getTableHeader().setReorderingAllowed(false);
+        this.vista.tablaComics.getTableHeader().setResizingAllowed(false);
     }
 
     public void mouseClicked(MouseEvent e){
