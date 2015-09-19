@@ -16,12 +16,15 @@ public class controlador implements ActionListener, MouseListener{
 
     interfaz vista ;
     modelo modelo = new modelo();
+    int tablaActiva = 0;
 
     public enum AccionMVC
     {
         btnVerComics,
         btnAgregarComic,
-        btnEliminarComic
+        btnEliminarComic,
+        btnInfo,
+        btnCerrar
     }
 
     public controlador(interfaz vista)
@@ -46,6 +49,8 @@ public class controlador implements ActionListener, MouseListener{
         this.vista.btnAgregarComic.addActionListener(this);
         this.vista.btnEliminarComic.setActionCommand("btnEliminarComic");
         this.vista.btnEliminarComic.addActionListener(this);
+        this.vista.btnInfo.setActionCommand("btnInfo");
+        this.vista.btnInfo.addActionListener(this);
 
         this.vista.tablaComics.addMouseListener(this);
         this.vista.tablaComics.setModel(new DefaultTableModel());
@@ -83,36 +88,61 @@ public class controlador implements ActionListener, MouseListener{
         switch (AccionMVC.valueOf(e.getActionCommand())){
             case btnVerComics:
                 this.vista.tablaComics.setModel(this.modelo.getTablaComic());
+                tablaActiva = 1;
                 break;
             case btnAgregarComic:
-                if (this.modelo.NuevoProducto(
+                if(tablaActiva == 0){
+                    JOptionPane.showMessageDialog(null, "Active la tabla primero pulsando 'Ver comics'");
+                }else{
+                    if (this.modelo.NuevoComic(
                         this.vista.isbn.getText(),
                         this.vista.titulo.getText(),
                         this.vista.precio.getText(),
                         this.vista.paginas.getText()))
-                {
-                    this.vista.tablaComics.setModel(this.modelo.getTablaComic());
-                    JOptionPane.showMessageDialog(vista,"Exito: Nuevo registro agregado.");
-                    this.vista.isbn.setText("");
-                    this.vista.titulo.setText("");
-                    this.vista.precio.setText("0");
-                    this.vista.paginas.setText("0");
-                }
-                else{
-                    JOptionPane.showMessageDialog(vista,"Error: Los datos son incorrectos.");
+                    {
+                        this.vista.tablaComics.setModel(this.modelo.getTablaComic());
+                        JOptionPane.showMessageDialog(vista,"Exito: Nuevo comic agregado.");
+                        this.vista.isbn.setText("");
+                        this.vista.titulo.setText("");
+                        this.vista.precio.setText("0");
+                        this.vista.paginas.setText("0");
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(vista,"Error: Los datos son incorrectos.");
+                    }
                 }
                 break;
             case btnEliminarComic:
-                if (this.modelo.EliminarProducto(this.vista.isbn.getText()))
-                {
-                    this.vista.tablaComics.setModel(this.modelo.getTablaComic());
-                    JOptionPane.showMessageDialog(vista,"Exito: Registro eliminado.");
-                    this.vista.isbn.setText("");
-                    this.vista.titulo.setText("");
-                    this.vista.precio.setText("0");
-                    this.vista.paginas.setText("0");
+                if(tablaActiva == 0){
+                    JOptionPane.showMessageDialog(null, "Active la tabla primero pulsando 'Ver comics'");
+                }else{
+                    if (this.modelo.EliminarProducto(this.vista.isbn.getText()))
+                    {
+                        this.vista.tablaComics.setModel(this.modelo.getTablaComic());
+                        if(this.vista.titulo.getText().equals("                                                                             ")
+                                || this.vista.titulo.getText().equals("")){
+                            JOptionPane.showMessageDialog(vista,"Seleccione primero un comic.");
+                        }else{
+                            JOptionPane.showMessageDialog(vista,"Exito: "+this.vista.titulo.getText()+" eliminado.");
+                        }
+                        this.vista.isbn.setText("");
+                        this.vista.titulo.setText("");
+                        this.vista.precio.setText("0");
+                        this.vista.paginas.setText("0");
+                    }
                 }
-                break;       
+                break;
+            case btnInfo:
+                if(tablaActiva == 0){
+                    JOptionPane.showMessageDialog(null, "Active la tabla primero pulsando 'Ver comics'");
+                }else{
+                    this.vista.txtNTComics.setText(String.valueOf(this.modelo.numeroComics()));
+                    this.vista.txtNTDinero.setText(String.valueOf(this.modelo.numeroDinero())+"€");
+                    this.vista.txtNTPaginas.setText(String.valueOf(this.modelo.numeroPaginas()));
+                    this.vista.dialogInfo.pack();
+                    this.vista.dialogInfo.setVisible(true);
+                }
+                break;
         }
     }
 }
