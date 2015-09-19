@@ -68,9 +68,9 @@ public class controlador implements ActionListener, MouseListener{
                 this.vista.precio.setText(String.valueOf( this.vista.tablaComics.getValueAt(fila, 2)));
                 this.vista.paginas.setText(String.valueOf( this.vista.tablaComics.getValueAt(fila, 3)));
                 try{
-                    this.vista.foto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/"+titulo+".jpg")));
+                    this.vista.foto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/"+titulo+".jpg")));
                 }catch(Exception ex){
-                    this.vista.foto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ImageNotFound.png")));
+                    this.vista.foto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ImageNotFound.png")));
                 }
             }
         }

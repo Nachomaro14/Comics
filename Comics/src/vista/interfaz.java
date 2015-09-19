@@ -187,6 +187,7 @@ public class interfaz extends javax.swing.JFrame {
         btnVerComics.setText("<< Ver Comics >>");
 
         btnAgregarComic.setText("<< Agregar Comic >>");
+        btnAgregarComic.setToolTipText("Para agregar un nuevo comic modifique la Información y pulse \"Agregar comic\".\nTenga en cuenta que el precio y las páginas deben ser números.");
 
         btnEliminarComic.setText("<< Eliminar Comic >>");
 

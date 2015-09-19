@@ -424,6 +424,7 @@
     <Component class="javax.swing.JButton" name="btnAgregarComic">
       <Properties>
         <Property name="text" type="java.lang.String" value="&lt;&lt; Agregar Comic &gt;&gt;"/>
+        <Property name="toolTipText" type="java.lang.String" value="Para agregar un nuevo comic modifique la Informaci&#xf3;n y pulse &quot;Agregar comic&quot;.&#xa;Tenga en cuenta que el precio y las p&#xe1;ginas deben ser n&#xfa;meros."/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
