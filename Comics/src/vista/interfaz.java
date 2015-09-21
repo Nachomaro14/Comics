@@ -20,7 +20,19 @@ public class interfaz extends javax.swing.JFrame {
         txtNTPaginas = new javax.swing.JLabel();
         txtNTComics = new javax.swing.JLabel();
         txtNTDinero = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        dialogNuevo = new javax.swing.JDialog();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        btnAceptarNuevo = new javax.swing.JButton();
+        btnCancelarNuevo = new javax.swing.JButton();
+        ntitulo = new javax.swing.JTextField();
+        nprecio = new javax.swing.JTextField();
+        npaginas = new javax.swing.JTextField();
+        nisbn = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaComics = new javax.swing.JTable();
@@ -74,7 +86,49 @@ public class interfaz extends javax.swing.JFrame {
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
         );
 
-        jLabel9.setText("jLabel9");
+        dialogNuevo.setAlwaysOnTop(true);
+
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel10.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("NUEVO COMIC");
+        jLabel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel10.setOpaque(true);
+        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 280, -1));
+
+        jLabel11.setText("ISBN");
+        jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, 20));
+
+        jLabel12.setText("Título");
+        jPanel4.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, 20));
+
+        jLabel13.setText("Precio");
+        jPanel4.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, 20));
+
+        jLabel14.setText("Páginas");
+        jPanel4.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 141, -1, 20));
+
+        btnAceptarNuevo.setText("Aceptar");
+        jPanel4.add(btnAceptarNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
+
+        btnCancelarNuevo.setText("Cancelar");
+        jPanel4.add(btnCancelarNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, -1, -1));
+        jPanel4.add(ntitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, 210, -1));
+        jPanel4.add(nprecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 210, -1));
+        jPanel4.add(npaginas, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 210, -1));
+        jPanel4.add(nisbn, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 210, -1));
+
+        javax.swing.GroupLayout dialogNuevoLayout = new javax.swing.GroupLayout(dialogNuevo.getContentPane());
+        dialogNuevo.getContentPane().setLayout(dialogNuevoLayout);
+        dialogNuevoLayout.setHorizontalGroup(
+            dialogNuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
+        );
+        dialogNuevoLayout.setVerticalGroup(
+            dialogNuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -262,14 +316,22 @@ public class interfaz extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btnAceptarNuevo;
     public javax.swing.JButton btnAgregarComic;
+    public javax.swing.JButton btnCancelarNuevo;
     public javax.swing.JButton btnEliminarComic;
     public javax.swing.JButton btnInfo;
     public javax.swing.JButton btnVerComics;
     public javax.swing.JDialog dialogInfo;
+    public javax.swing.JDialog dialogNuevo;
     public javax.swing.JLabel foto;
     public javax.swing.JFormattedTextField isbn;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -277,11 +339,15 @@ public class interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JTextField nisbn;
+    public javax.swing.JTextField npaginas;
+    public javax.swing.JTextField nprecio;
+    public javax.swing.JTextField ntitulo;
     public javax.swing.JFormattedTextField paginas;
     public javax.swing.JFormattedTextField precio;
     public javax.swing.JTable tablaComics;

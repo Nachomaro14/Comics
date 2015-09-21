@@ -24,7 +24,8 @@ public class controlador implements ActionListener, MouseListener{
         btnAgregarComic,
         btnEliminarComic,
         btnInfo,
-        btnCerrar
+        btnAceptarNuevo,
+        btnCancelarNuevo
     }
 
     public controlador(interfaz vista)
@@ -51,6 +52,10 @@ public class controlador implements ActionListener, MouseListener{
         this.vista.btnEliminarComic.addActionListener(this);
         this.vista.btnInfo.setActionCommand("btnInfo");
         this.vista.btnInfo.addActionListener(this);
+        this.vista.btnAceptarNuevo.setActionCommand("btnAceptarNuevo");
+        this.vista.btnAceptarNuevo.addActionListener(this);
+        this.vista.btnCancelarNuevo.setActionCommand("btnCancelarNuevo");
+        this.vista.btnCancelarNuevo.addActionListener(this);
 
         this.vista.tablaComics.addMouseListener(this);
         this.vista.tablaComics.setModel(new DefaultTableModel());
@@ -91,26 +96,8 @@ public class controlador implements ActionListener, MouseListener{
                 tablaActiva = 1;
                 break;
             case btnAgregarComic:
-                if(tablaActiva == 0){
-                    JOptionPane.showMessageDialog(null, "Active la tabla primero pulsando 'Ver comics'");
-                }else{
-                    if (this.modelo.NuevoComic(
-                        this.vista.isbn.getText(),
-                        this.vista.titulo.getText(),
-                        this.vista.precio.getText(),
-                        this.vista.paginas.getText()))
-                    {
-                        this.vista.tablaComics.setModel(this.modelo.getTablaComic());
-                        JOptionPane.showMessageDialog(vista,"Exito: Nuevo comic agregado.");
-                        this.vista.isbn.setText("");
-                        this.vista.titulo.setText("");
-                        this.vista.precio.setText("0");
-                        this.vista.paginas.setText("0");
-                    }
-                    else{
-                        JOptionPane.showMessageDialog(vista,"Error: Los datos son incorrectos.");
-                    }
-                }
+                this.vista.dialogNuevo.pack();
+                this.vista.dialogNuevo.setVisible(true);
                 break;
             case btnEliminarComic:
                 if(tablaActiva == 0){
@@ -127,8 +114,8 @@ public class controlador implements ActionListener, MouseListener{
                         }
                         this.vista.isbn.setText("");
                         this.vista.titulo.setText("");
-                        this.vista.precio.setText("0");
-                        this.vista.paginas.setText("0");
+                        this.vista.precio.setText("");
+                        this.vista.paginas.setText("");
                     }
                 }
                 break;
@@ -142,6 +129,36 @@ public class controlador implements ActionListener, MouseListener{
                     this.vista.dialogInfo.pack();
                     this.vista.dialogInfo.setVisible(true);
                 }
+                break;
+            case btnAceptarNuevo:
+                if(tablaActiva == 0){
+                    JOptionPane.showMessageDialog(null, "Active la tabla primero pulsando 'Ver comics'");
+                }else{
+                    if (this.modelo.NuevoComic(
+                        this.vista.nisbn.getText(),
+                        this.vista.ntitulo.getText(),
+                        this.vista.nprecio.getText(),
+                        this.vista.npaginas.getText()))
+                    {
+                        this.vista.tablaComics.setModel(this.modelo.getTablaComic());
+                        JOptionPane.showMessageDialog(vista,"Exito: Nuevo comic agregado.");
+                        this.vista.nisbn.setText("");
+                        this.vista.ntitulo.setText("");
+                        this.vista.nprecio.setText("");
+                        this.vista.npaginas.setText("");
+                        this.vista.dialogNuevo.setVisible(false);
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(vista,"Error: Los datos son incorrectos.");
+                    }
+                }
+                break;
+            case btnCancelarNuevo:
+                this.vista.dialogNuevo.setVisible(false);
+                this.vista.nisbn.setText("");
+                this.vista.npaginas.setText("");
+                this.vista.nprecio.setText("");
+                this.vista.ntitulo.setText("");
                 break;
         }
     }
