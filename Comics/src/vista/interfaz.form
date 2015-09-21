@@ -521,6 +521,7 @@
         </Component>
         <Component class="javax.swing.JFormattedTextField" name="precio">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
               <Format format="#0.00" subtype="-1" type="0"/>
             </Property>
@@ -531,6 +532,7 @@
         </Component>
         <Component class="javax.swing.JFormattedTextField" name="paginas">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
               <Format format="#0" subtype="-1" type="0"/>
             </Property>
@@ -541,6 +543,7 @@
         </Component>
         <Component class="javax.swing.JFormattedTextField" name="titulo">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
               <Format format="*****************************************************************************" subtype="-1" type="5"/>
             </Property>
@@ -554,6 +557,7 @@
         </Component>
         <Component class="javax.swing.JFormattedTextField" name="isbn">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
               <Format format="******************************************************************************************************" subtype="-1" type="5"/>
             </Property>

@@ -175,10 +175,13 @@ public class interfaz extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setText("Páginas:");
 
+        precio.setEditable(false);
         precio.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
 
+        paginas.setEditable(false);
         paginas.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
 
+        titulo.setEditable(false);
         try {
             titulo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("*****************************************************************************")));
         } catch (java.text.ParseException ex) {
@@ -190,6 +193,7 @@ public class interfaz extends javax.swing.JFrame {
             }
         });
 
+        isbn.setEditable(false);
         try {
             isbn.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("******************************************************************************************************")));
         } catch (java.text.ParseException ex) {
